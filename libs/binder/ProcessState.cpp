@@ -245,7 +245,8 @@ bool ProcessState::becomeContextManager()
     int minPriority = sched_get_priority_min(policy);
 
     flat_binder_object obj {
-        .flags = FLAT_BINDER_FLAG_TXN_SECURITY_CTX,
+        // Disabled for Halium
+        /*.flags = FLAT_BINDER_FLAG_TXN_SECURITY_CTX,*/
     };
     obj.flags |= schedPolicyMask(policy, minPriority);
     obj.flags |= FLAT_BINDER_FLAG_INHERIT_RT;
